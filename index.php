@@ -18,11 +18,16 @@
 	 * Setup the gate
 	 */
 	$user = $facebook->getUser();
+	$permissions = array(
+		'read_stream',
+		'user_likes',
+		'publish_stream'
+	)
 	
 	if($user){
 		
 		try {
-			$permissions = $facebook->api('/me/permissions');
+			$userpermissions = $facebook->api('/me/permissions');
 		} catch (FacebookApiException $e){
 			$user = null;
 		}
@@ -33,11 +38,11 @@
 	
 	if($user){
 		//$likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
-		var_dump($permissions);
+		var_dump(in_array($permissions, $userpermissions));
 	} else {
 		header(sprintf('Location: %s', $facebook->getLoginUrl(
 				array(
-					'scope' => 'read_stream, user_likes, publish_stream'
+					'scope' => implode(", ", $permissions)
 				)
 			)));
 	}
