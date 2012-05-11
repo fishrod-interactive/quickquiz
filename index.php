@@ -14,23 +14,9 @@
 		'secret' => FB_APP_SECRET
 	));
 	
-	// Check to see whether the user is logged in or not
-	$user = $facebook->getUser();
-	
-	if ($user) {
-	  try {
-	    // Proceed knowing you have a logged in user who's authenticated.
-	    $user_profile = $facebook->api('/me');
-	  } catch (FacebookApiException $e) {
-	    $user = null;
-	  }
-	}
-	
-	if(!$user){
-		header(sprintf('Location: %s', $facebook->getLoginUrl()));
-	}
-	
-	var_dump($user);
+	/**
+	 * Setup the gateway
+	 */
 	
 	// Check to see whether the user has liked the page or not
 	// $likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
