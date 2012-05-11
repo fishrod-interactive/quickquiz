@@ -15,8 +15,27 @@
 	));
 	
 	/**
-	 * Setup the gateway
+	 * Setup the gate
 	 */
+	$user = $facebook->getUser();
+	
+	if($user){
+		
+		try {
+			$facebook->api('/me');
+		} catch (Exception $e){
+			$user = null;
+		}
+		
+	} else {
+		return;
+	}
+	
+	if($user){
+		
+	} else {
+		header(sprintf('Location: %s', $facebook->getLoginUrl()));
+	}
 	
 	// Check to see whether the user has liked the page or not
 	// $likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
