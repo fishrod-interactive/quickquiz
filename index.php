@@ -22,7 +22,7 @@
 	if($user){
 		
 		try {
-			$facebook->api('/me');
+			$permissions = $facebook->api('/me/permissions');
 		} catch (FacebookApiException $e){
 			$user = null;
 		}
@@ -32,9 +32,14 @@
 	}
 	
 	if($user){
-		$likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
+		//$likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
+		var_dump($permissions);
 	} else {
-		header(sprintf('Location: %s', $facebook->getLoginUrl()));
+		header(sprintf('Location: %s', $facebook->getLoginUrl(
+				array(
+					'scope' => 'read_stream, user_likes, publish_stream'
+				)
+			)));
 	}
 	
 	var_dump($likeID);
