@@ -22,7 +22,7 @@
 		'read_stream',
 		'user_likes',
 		'publish_stream'
-	)
+	);
 	
 	if($user){
 		
