@@ -32,15 +32,12 @@
 	}
 	
 	if($user){
-		
+		$likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
 	} else {
 		header(sprintf('Location: %s', $facebook->getLoginUrl()));
 	}
 	
-	// Check to see whether the user has liked the page or not
-	// $likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
-	
-	 //var_dump($likeID);
+	var_dump($likeID);
 
 	// Setup the quiz
 	$quiz = new Quiz();
