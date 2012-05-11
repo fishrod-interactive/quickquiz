@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>How Much of a Brogrammer are You</title>
+	</head>
+	
+	<body>
+		
+		<header>
+			<h1><?php echo $quiz->name; ?></h1>
+			<p><?php echo $quiz->description; ?></p>
+		</header>
+		
+		<section>
+			You got <?php echo $quiz->getScore(); ?>% <?php echo $quiz->getReward()->message; ?>
+		</section>
+		
+	</body>
+
+</html>
