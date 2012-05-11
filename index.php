@@ -1,9 +1,41 @@
 <?php
 	
+	require_once 'config.php';
+	require_once 'lib/facebook/src/facebook.php';
+	
 	require_once 'models/question.php';
 	require_once 'models/answer.php';
 	require_once 'models/reward.php';
 	require_once 'models/quiz.php';
+	
+	// Initialise Facebook
+	$facebook = new Facebook(array(
+		'appId' => FB_APP_ID,
+		'secret' => FB_APP_SECRET
+	));
+	
+	// Check to see whether the user is logged in or not
+	$user = $facebook->getUser();
+	
+	if ($user) {
+	  try {
+	    // Proceed knowing you have a logged in user who's authenticated.
+	    $user_profile = $facebook->api('/me');
+	  } catch (FacebookApiException $e) {
+	    $user = null;
+	  }
+	}
+	
+	if(!$user){
+		header(sprintf('Location: %s', $facebook->getLoginUrl()));
+	}
+	
+	var_dump($user);
+	
+	// Check to see whether the user has liked the page or not
+	// $likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
+	
+	 //var_dump($likeID);
 
 	// Setup the quiz
 	$quiz = new Quiz();
