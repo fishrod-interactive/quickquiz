@@ -23,7 +23,7 @@
 		
 		try {
 			$facebook->api('/me');
-		} catch (Exception $e){
+		} catch (FacebookApiException $e){
 			$user = null;
 		}
 		
