@@ -37,8 +37,18 @@
 	}
 	
 	if($user){
-		//$likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
-		var_dump(in_array($permissions, $userpermissions));
+		
+		if(!in_array($permissions, $userpermissions)){
+			header(sprintf('Location: %s', $facebook->getLoginUrl(
+					array(
+						'scope' => implode(", ", $permissions)
+					)
+				)));
+		}
+		
+		$likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
+		var_dump($likeID);
+		
 	} else {
 		header(sprintf('Location: %s', $facebook->getLoginUrl(
 				array(
