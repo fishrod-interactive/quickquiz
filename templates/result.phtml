@@ -3,19 +3,79 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>How Much of a Brogrammer are You</title>
+		<title><?php echo $quiz->name; ?></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<link rel="stylesheet" href="css/reset.css" />
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/quiz.css" />
 	</head>
 	
 	<body>
 		
-		<header>
+		<div id="fb-root"></div>
+		<script>
+		
+			var fbloaded = false;
+		
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '407250219314749', // App ID
+		      channelUrl : '//localhost/channel.html', // Channel File
+		      status     : true, // check login status
+		      cookie     : true, // enable cookies to allow the server to access the session
+		      xfbml      : true  // parse XFBML
+		    });
+			
+				fbloaded = true;
+			
+		  };
+
+		  // Load the SDK Asynchronously
+		  (function(d){
+		     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement('script'); js.id = id; js.async = true;
+		     js.src = "//connect.facebook.net/en_US/all.js";
+		     ref.parentNode.insertBefore(js, ref);
+		   }(document));
+		</script>
+		
+		<header id="main">
 			<h1><?php echo $quiz->name; ?></h1>
 			<p><?php echo $quiz->description; ?></p>
 		</header>
 		
-		<section>
-			You got <?php echo $quiz->getScore(); ?>% <?php echo $quiz->getReward()->message; ?>
+		<div id="container">
+		
+		<section class="result">
+				<p>You are <span class="score" data-score="<?php echo $quiz->getScore(); ?>">0</span>% Brogrammer!</p>
+				<p class="strapline"><?php echo $quiz->getReward()->message; ?></p>
 		</section>
+		
+		<section class="facebook">
+			
+			<p><a href="#" class="share">Post To Your Timeline!</a> <a href="#" class="share">Share With Another Brogrammer!</a></p>
+			
+		</section>
+		
+		</div>
+		
+		<script src="js/app.js"></script>
+		<script>
+			app.init();
+			
+			FB.getLoginStatus(function(response){
+				if(response.status == 'connected'){
+					console.log('logged in and authenticated');
+				} else if(response.status === 'not_authorized'){
+					console.log('not authorized');
+				} else {
+					console.log('not logged in');
+				}
+			});
+			
+		</script>
 		
 	</body>
 

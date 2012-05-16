@@ -1,0 +1,96 @@
+/**
+ * Yo, so we're gonna code this up real tight, use some fonts that most
+ * peeps will probably never have, and use that bad boy Google Web Fonts
+ * ting.
+ *
+ * - Nuff love - G.Willeasy
+ */
+
+body {
+   background: #f2f2f2;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;
+	font-size: 0.75em;
+}
+
+header#main {
+	background: rgba(7, 4, 26, 0.75);
+	border-bottom: 2px solid #d98909;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 15px;
+	min-width: 820px;
+}
+
+header#main h1 {
+	font-family: 'Lobster', cursive;
+	color: #d98909;
+	font-size: 4em;
+	margin-bottom: 0.5em;
+	text-shadow: rgba(219, 84, 46, 0.5) 2px 2px 1px;
+	
+}
+
+header#main p {
+	font-size: 1.5em;
+}
+
+#container {
+	width: 850px;
+	margin: 0px auto;
+	padding: 20px;
+}
+
+#container fieldset h2 {
+	font-size: 2em;
+}
+
+#container fieldset li {
+	margin: 10px 0;
+}
+
+#container fieldset li label input {
+	margin-right: 10px;
+}
+
+section.result {
+	padding-top: 2em;
+	font-family: 'Lobster', cursive;
+	text-align: center;
+	font-weight: bold;
+	font-size: 4em;
+	text-shadow: rgba(249, 249, 250, 1) 2px 2px 1px;
+}
+
+section.result .strapline {
+	margin-top: 0.5em;
+	opacity: 0;
+}
+
+section.facebook {
+	margin-top: 6em;
+	text-align: center;
+	display: none;
+}
+
+a.share {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;
+	display: inline-block;
+	text-decoration: none;
+	padding: 10px 20px;
+	margin: 0 10px;
+	background: rgba(7, 4, 26, 1);
+	border: 2px solid #d98909;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-box-shadow:
+		0px 0px 0px rgba(255,255,255,0),
+		inset 0px 0px 0px rgba(255,255,255,0);
+	-webkit-box-shadow:
+		0px 0px 0px rgba(255,255,255,0),
+		inset 0px 0px 0px rgba(255,255,255,0);
+	text-shadow: #000000  1px 1px 1px;
+}

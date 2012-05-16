@@ -8,99 +8,14 @@
 	require_once 'models/reward.php';
 	require_once 'models/quiz.php';
 	
-	// Initialise Facebook
-	$facebook = new Facebook(array(
-		'appId' => FB_APP_ID,
-		'secret' => FB_APP_SECRET
-	));
-	
-	/**
-	 * Setup the gate
-	 */
-	$user = $facebook->getUser();
-	$permissions = array(
-		'read_stream',
-		'user_likes',
-		'publish_stream'
-	);
-	
-	if($user){
-		
-		try {
-			$userpermissions = $facebook->api('/me/permissions');
-		} catch (FacebookApiException $e){
-			$user = null;
-		}
-		
-	} else {
-		return;
-	}
-	
-	if($user){
-		
-		if(!in_array($permissions, $userpermissions)){
-			header(sprintf('Location: %s', $facebook->getLoginUrl(
-					array(
-						'scope' => implode(", ", $permissions)
-					)
-				)));
-		}
-		
-		$likeID = $facebook->api(array('method' => 'fql.query', 'query' => sprintf('SELECT target_id FROM connection WHERE source_id = %s AND target_id = %s', $user, PAGE_ID)));
-		var_dump($likeID);
-		
-	} else {
-		header(sprintf('Location: %s', $facebook->getLoginUrl(
-				array(
-					'scope' => implode(", ", $permissions)
-				)
-			)));
-	}
-	
-	var_dump($likeID);
-
 	// Setup the quiz
 	$quiz = new Quiz();
-	$quiz->name = 'Test Quiz';
-	$quiz->description = 'Test Description';
+	$quiz->name = 'The Brogrammer Challenge';
+	$quiz->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque volutpat tincidunt.';
 	$quiz->image = 'img/test.jpg';
-	
-	/* Create the rewards */
-	$rewards = array(
-		new Reward(0, 'Your rubbish', 'img/rubbish.png'),
-		new Reward(20, 'You\'re not too bad', 'img/not-bad.png'),
-		new Reward(30, 'You\'re alright', 'img/alright.png'),
-		new Reward(80, 'You\'re not quite awesone!', 'img/awesome.png'),
-		new Reward(100, 'You\'re fucking awesone!', 'img/awesome.png')
-	);
-	
-	$quiz->rewards = $rewards;
-	
-	/* How Cool Are You? */
-	$question = new Question();
-	$question->description = "How cool are you?";
-	$answers = array(
-		new Answer('0%', 0),
-		new Answer('30%', 30),
-		new Answer('70%', 70)
-	);
-	
-	$question->answers = $answers;
-	
-	$quiz->addQuestion($question);
 
-	/* How many fingers do you have? */
-	$question = new Question();
-	$question->description = "How many fingers do you have?";
-	$answers = array(
-		new Answer('0%', 0),
-		new Answer('30%', 30),
-		new Answer('70%', 70)
-	);
-	
-	$question->answers = $answers;
-	
-	$quiz->addQuestion($question);
+	require_once 'data/rewards.php';
+	require_once 'data/questions.php';
 	
 	if(!empty($_POST)){
 		
