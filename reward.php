@@ -5,6 +5,10 @@ $size = (int) (isset($_GET['size'])) ? $_GET['size'] : 50;
 
 $image = 'graphics/_600-20.png';
 
+if($result < 0){
+	$result = 0;
+}
+
 if($result > 0 && $result < 25){
 	$image = 'graphics/20-40.png';
 } else if($result >= 25 && $result < 50) {
