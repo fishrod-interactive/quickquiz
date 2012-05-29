@@ -6,7 +6,6 @@
 		<title><?php echo $quiz->name; ?></title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="./js/easypaginate.min.js" type="text/javascript" charset="utf-8"></script>
-		
 		<link rel="stylesheet" href="css/reset.css" />
 		<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
 		<link href='https://fonts.googleapis.com/css?family=Rammetto+One' rel='stylesheet' type='text/css' />
@@ -15,16 +14,13 @@
 	
 	<body>
 		
-		<header id="main">
+		<header>
 			<h1><?php echo $quiz->name; ?></h1>
 			<p><?php echo $quiz->description; ?></p>
 		</header>
 		
-		<div id="container">
-		
 		<section>
-			
-			<form action="index.php" method="post" accept-charset="utf-8" class="questions">
+			<form action="index.php" method="post" accept-charset="utf-8">
 				
 				<?php foreach($quiz->questions as $questionkey => $question): ?>
 				
@@ -36,7 +32,7 @@
 							
 						<?php foreach($question->answers as $answerkey => $answer): ?>
 							
-								<li><label><input type="radio" name="answers[<?php echo $questionkey; ?>]" value="<?php echo $answerkey; ?>"><?php echo $answer->description; ?></label></li>
+								<li><label><?php echo $answer->description; ?><input type="radio" name="answers[<?php echo $questionkey; ?>]" value="<?php echo $answerkey; ?>"></label></li>
 							
 							
 						<?php endforeach ?>
@@ -46,22 +42,9 @@
 				
 				<?php endforeach; ?>
 			
-				<fieldset class="getresult">
-					
-					<p><button type="submit" class="punch">SHOW ME THE MONEY!</button></p>
-					
-				</fieldset>
-				
+				<p><input type="submit" value="submit"></p>
 			</form>
-			
 		</section>
-		
-		</div>
-		
-		<script src="js/app.js"></script>
-		<script>
-			app.init();			
-		</script>
 		
 	</body>
 

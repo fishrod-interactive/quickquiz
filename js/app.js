@@ -9,7 +9,7 @@ var app = (function($){
 			score = $this.data('score');
 						
 			callback = function(){
-				if(current < score){
+				if(current <= score){
 					currenttimeout = maxtimeout * (((100 / score) * current) / 100); // One day I'll make you ease!
 					$this.text(current);
 					current ++;
@@ -17,7 +17,7 @@ var app = (function($){
 						callback();
 					}, currenttimeout);
 				} else {
-					$('.strapline').animate({opacity: 1}, 200, 'linear', function(){
+					$('.strapline, .reward').animate({opacity: 1}, 200, 'linear', function(){
 						$('.facebook').fadeIn('200');
 					});
 					clearTimeout(timeout);
@@ -29,12 +29,63 @@ var app = (function($){
 			}, currenttimeout);
 			
 		});
-	}
+	},
+	enhanceQuestions = function(){
+		$('form.questions').easyPaginate({
+			step: 1
+		});
+	};
 	
 	return {
 		init: function init(){
+			enhanceQuestions();
 			enhanceScore();
+		},
+		checkLogin: function(successcallback){
+			FB.getLoginStatus(function(response){
+				if(response.status === 'connected'){
+					successcallback.call();
+				} else if (response.status === 'not_authorized') {
+					app.login(successcallback);
+				} else {
+					app.login(successcallback);
+				}
+			});
+		},
+		login: function login(successcallback){
+			FB.login(function(response) {
+			   if (response.authResponse) {
+					successcallback.call();
+				} else {
+					
+				}
+			 }, {scope: 'publish_stream'});
+		},
+		checkLoginAndPost: function(result, strapline, image){
+			app.checkLogin(function(){
+				app.postToTimeline(result, strapline, image);
+			});
+		},
+		postToTimeline: function(result, strapline, image){
+			FB.api(
+			        '/me/feed',
+			        'post',
+			        {
+						message: 'I just scored ' + result + '% in the PCR Digital Brogrammer Quiz',
+						caption: strapline,
+						picture: image,
+						name: 'The PCR Digital Brogrammer Quiz'
+				 	},
+			        function(response) {
+			           if (!response || response.error) {
+			              alert('Error occured');
+			           } else {
+			              alert('Cook was successful! Action ID: ' + response.id);
+			           }
+			});
+			
+			return false;
 		}
-	}
+	};
 	
 })(jQuery);

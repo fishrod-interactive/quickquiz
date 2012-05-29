@@ -52,13 +52,16 @@ class Quiz {
 		foreach($answers as $answer){
 			$score += $answer->percentage;
 		}
-		
-		return $score / count($answers);
+				
+		return round($score / count($answers));
 		
 	}
 	
-	public function getReward(){
-		$score = $this->getScore();
+	public function getReward($score = null){
+		
+		if($score == null){
+			$score = $this->getScore();
+		}
 		
 		foreach($this->rewards as $reward){
 			if($score <= $reward->threshold){

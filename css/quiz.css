@@ -7,46 +7,58 @@
  */
 
 body {
-   background: #f2f2f2;
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-   font-weight: 300;
+	background: #FFFFFF;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
 	font-size: 0.75em;
 }
 
 header#main {
-	background: rgba(7, 4, 26, 0.75);
-	border-bottom: 2px solid #d98909;
+	background: rgba(255, 255, 255, 0.75);
+	border-bottom: 2px solid rgb(102, 102, 102);
 	color: #FFFFFF;
 	text-align: center;
 	padding: 15px;
-	min-width: 820px;
+	width: 780px;
+	margin: 0 auto;
 }
 
 header#main h1 {
-	font-family: 'Lobster', cursive;
-	color: #d98909;
+	font-family: 'Rammetto One', cursive;
+	color: rgb(119, 163, 66);
 	font-size: 4em;
 	margin-bottom: 0.5em;
-	text-shadow: rgba(219, 84, 46, 0.5) 2px 2px 1px;
+	text-shadow: rgba(82, 124, 58, 0.5) 2px 2px 1px;
 	
 }
 
 header#main p {
 	font-size: 1.5em;
+	color: rgb(141, 141, 141);
+	line-height: 1.3em;
+	text-shadow: rgba(141, 141, 141, 0.5) 1px 1px 1px;
 }
 
 #container {
-	width: 850px;
+	width: 770px;
 	margin: 0px auto;
 	padding: 20px;
 }
 
+
+#container fieldset {
+	padding-bottom: 4em;
+}
+
 #container fieldset h2 {
-	font-size: 2em;
+	font-size: 3em;
+	margin-bottom: 2em;
 }
 
 #container fieldset li {
 	margin: 10px 0;
+	font-size: 2em;
+	margin-bottom: 2em;
 }
 
 #container fieldset li label input {
@@ -54,7 +66,7 @@ header#main p {
 }
 
 section.result {
-	padding-top: 2em;
+	padding-top: 0.5em;
 	font-family: 'Lobster', cursive;
 	text-align: center;
 	font-weight: bold;
@@ -65,6 +77,12 @@ section.result {
 section.result .strapline {
 	margin-top: 0.5em;
 	opacity: 0;
+	color: #e75b4b;
+}
+
+section.result .reward {
+	margin-top: 1em;
+	opacity: 0;
 }
 
 section.facebook {
@@ -72,6 +90,106 @@ section.facebook {
 	text-align: center;
 	display: none;
 }
+
+body.likefirstaskquestionslater #container,
+body.likefirstaskquestionslater #main {
+	float: left;
+}
+
+body.likefirstaskquestionslater #container {
+	width: 700px;
+}
+
+body.likefirstaskquestionslater #main {
+	width: 710px;
+}
+
+body.likefirstaskquestionslater .like-arrow {
+	float: right;
+}
+
+body.likefirstaskquestionslater #container p {
+	text-align: center;
+	font-size: 3em;
+	line-height: 1.2em;
+	margin-bottom: 0.5em;
+}
+
+/**
+ * Pagination stuff! BOOM!
+ */
+
+fieldset.getresult {
+	text-align: center;
+	padding: 50px 0 70px 0;
+}
+
+ol#pagination {
+	text-align: center;
+}
+
+ol#pagination li {
+	display: inline-block;
+	border-radius: 20px;
+	width: 20px;
+	line-height: 20px;
+	height: 20px;
+	color: #FFFFFF;
+	background: rgba(141, 141, 141, 0.5);
+	border: 2px solid rgb(119, 163, 66);
+	margin: 0 2px;
+	cursor: pointer;
+}
+
+ol#pagination li.current {
+	background: #FFFFFF;
+	color: rgb(119, 163, 66);
+}
+
+ol#pagination li.next,
+ol#pagination li.prev {
+	width: auto;
+	padding: 0 10px;
+	background: #666666;
+	font-weight: bold;
+}
+
+/**
+ * Crazy Buttons!
+ */
+
+/* punch
+*******************************************************************************/
+button.punch {
+  background: #4162a8;
+  border-top: 1px solid #38538c;
+  border-right: 1px solid #1f2d4d;
+  border-bottom: 1px solid #151e33;
+  border-left: 1px solid #1f2d4d;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+  -moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+  box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+  color: #fff;
+  font: bold 20px "helvetica neue", helvetica, arial, sans-serif;
+  line-height: 1;
+  margin-bottom: 10px;
+  padding: 10px 20px 12px 20px;
+  text-align: center;
+  text-shadow: 0px -1px 1px #1e2d4d;
+  -webkit-background-clip: padding-box; }
+  button.punch:hover {
+    -webkit-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+    -moz-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+    box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+    cursor: pointer; }
+  button.punch:active {
+    -webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+    -moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+    box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+    margin-top: 5px; }
 
 a.share {
 	font-family: Arial, Helvetica, sans-serif;

@@ -5,11 +5,12 @@
 		<meta charset="utf-8">
 		<title><?php echo $quiz->name; ?></title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/easypaginate.min.js" type="text/javascript" charset="utf-8"></script>
 		
 		<link rel="stylesheet" href="css/reset.css" />
-		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+		<link href='https://fonts.googleapis.com/css?family=Rammetto+One' rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" href="css/quiz.css" />
-	</head>
 	
 	<body>
 		
@@ -20,15 +21,14 @@
 		
 		  window.fbAsyncInit = function() {
 		    FB.init({
-		      appId      : '407250219314749', // App ID
-		      channelUrl : '//localhost/channel.html', // Channel File
+		      appId      : '<?php echo FB_APP_ID; ?>', // App ID
+		      channelUrl : '//pcr-facebook.fishrod.co.uk/brogrammer/channel.html', // Channel File
 		      status     : true, // check login status
 		      cookie     : true, // enable cookies to allow the server to access the session
-		      xfbml      : true  // parse XFBML
+		      xfbml      : true, // parse XFBML
+					frictionlessRequests: true
 		    });
-			
-				fbloaded = true;
-			
+				
 		  };
 
 		  // Load the SDK Asynchronously
@@ -39,6 +39,18 @@
 		     js.src = "//connect.facebook.net/en_US/all.js";
 		     ref.parentNode.insertBefore(js, ref);
 		   }(document));
+		
+		
+			 function sendRequestViaMultiFriendSelector() {
+			        FB.ui({method: 'apprequests',
+			          message: 'My Great Request'
+			        }, requestCallback);
+			      }
+
+			      function requestCallback(response) {
+			      	console.log(response);
+			      }
+			
 		</script>
 		
 		<header id="main">
@@ -50,12 +62,16 @@
 		
 		<section class="result">
 				<p>You are <span class="score" data-score="<?php echo $quiz->getScore(); ?>">0</span>% Brogrammer!</p>
+				
+				<img class="reward" src="<?php echo $imageurl; ?>&size=50" />
+				
 				<p class="strapline"><?php echo $quiz->getReward()->message; ?></p>
+													
 		</section>
 		
 		<section class="facebook">
 			
-			<p><a href="#" class="share">Post To Your Timeline!</a> <a href="#" class="share">Share With Another Brogrammer!</a></p>
+			<p><a href="#" onclick="app.checkLoginAndPost ('<?php echo $quiz->getScore(); ?>%', '<?php echo $quiz->getReward()->message; ?>', '<?php echo $imageurl; ?>');" class="share">Post To Your Timeline!</a> <a href="#" onclick="sendRequestViaMultiFriendSelector(); return false;" class="share">Share With Another Brogrammer!</a></p>
 			
 		</section>
 		
@@ -63,18 +79,7 @@
 		
 		<script src="js/app.js"></script>
 		<script>
-			app.init();
-			
-			FB.getLoginStatus(function(response){
-				if(response.status == 'connected'){
-					console.log('logged in and authenticated');
-				} else if(response.status === 'not_authorized'){
-					console.log('not authorized');
-				} else {
-					console.log('not logged in');
-				}
-			});
-			
+			app.init();			
 		</script>
 		
 	</body>

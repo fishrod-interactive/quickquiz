@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# pcrbrogrammer: http://ogp.me/ns/fb/pcrbrogrammer#">
+		<meta charset="utf-8">
+		<title><?php echo $quiz->name; ?></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/easypaginate.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<link rel="stylesheet" href="css/reset.css" />
+		<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+		<link href='https://fonts.googleapis.com/css?family=Rammetto+One' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="css/quiz.css" />
+		
+	  <meta property="fb:app_id"            content="407250219314749" /> 
+	  <meta property="og:type"              content="pcrbrogrammer:quiz" /> 
+	  <meta property="og:url"               content="<?php echo $fbogurl; ?>" /> 
+	  <meta property="og:title"             content="<?php echo $quiz->name; ?>" /> 
+	  <meta property="og:image"             content="https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png" /> 
+	  <meta property="pcrbrogrammer:result" content="<?php echo $quiz->getReward($result)->message; ?>" /> 
+	  <meta property="pcrbrogrammer:score"  content="<?php echo $result; ?>" />
+	
+	<body>
+		
+		<header id="main">
+			<h1><?php echo $quiz->name; ?></h1>
+			<p><?php echo $quiz->description; ?></p>
+		</header>
+		
+		<div id="container">
+		
+		<section class="result">
+				<p>You are <span class="score" data-score="<?php echo $result; ?>">0</span>% Brogrammer!</p>
+				<p class="strapline"><?php echo $quiz->getReward($result)->message; ?></p>
+		</section>
+		
+		</div>
+		
+		<script src="js/app.js"></script>
+		<script>
+			app.init();			
+		</script>
+		
+	</body>
+
+</html>

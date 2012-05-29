@@ -5,43 +5,33 @@
 		<meta charset="utf-8">
 		<title><?php echo $quiz->name; ?></title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/easypaginate.min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" href="css/reset.css" />
+		<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+		<link href='https://fonts.googleapis.com/css?family=Rammetto+One' rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" href="css/quiz.css" />
 	</head>
 	
-	<body>
+	<body class="likefirstaskquestionslater">
+				
+		<img src="img/arrow.png" width="70" height="400" class="like-arrow" />
 		
-		<header>
+		<header id="main">
 			<h1><?php echo $quiz->name; ?></h1>
 			<p><?php echo $quiz->description; ?></p>
 		</header>
 		
-		<section>
-			<form action="index.php" method="post" accept-charset="utf-8">
-				
-				<?php foreach($quiz->questions as $questionkey => $question): ?>
-				
-					<fieldset>
-					
-						<h2><?php echo $question->description; ?></h2>
-						
-						<ul>
-							
-						<?php foreach($question->answers as $answerkey => $answer): ?>
-							
-								<li><label><?php echo $answer->description; ?><input type="radio" name="answers[<?php echo $questionkey; ?>]" value="<?php echo $answerkey; ?>"></label></li>
-							
-							
-						<?php endforeach ?>
-						
-						</ul>
-					</fieldset>
-				
-				<?php endforeach; ?>
+		
+		<div id="container">
+		
+			<section>
 			
-				<p><input type="submit" value="submit"></p>
-			</form>
-		</section>
+				<p>Our Brogrammer personality test can only be accessed by our die hard fans.</p>
+				<p>Click the like button to activate the test!</p>		
+			
+			</section>
+		
+		</div>
 		
 	</body>
 

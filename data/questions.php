@@ -65,7 +65,7 @@ $question = new Question();
 $question->description = "What do you eat while coding?";
 $answers = array(
 	new Answer('My mum makes me a packed lunch', 0),
-	new Answer('I am so focused on coding I ', 25),
+	new Answer('I am so focused on coding I forget to eat', 25),
 	new Answer('Snacks', 50),
 	new Answer('Meat, meat, and meat - low carbs', 75),
 	new Answer('A balanced diet of protein, carbs and veg', 100)
