@@ -128,7 +128,7 @@ var app = (function($){
 			
 			}
 		
-			FB.ui(obj, callback);
+			return false;
 			
 		}
 	};
