@@ -66,14 +66,15 @@ var app = (function($){
 				app.postToTimeline(result, strapline, image);
 			});
 		},
-		sendToFriend: function(URL){
+		sendToFriend: function(URL, image){
 			
 
 		FB.ui({
           method: 'send',
           name: 'PCR Brogrammer Quiz',
-          link: 'https://pcr-facebook.fishrod.co.uk/brogrammer',
-		  picture: image
+          link: URL,
+		  picture: image,
+		  description: 'Here is a description about how awesome this app is!'
         });
 			
 			return false;
