@@ -67,24 +67,24 @@ var app = (function($){
 			});
 		},
 		postToTimeline: function(result, strapline, image){
-			FB.api(
-			        '/me/feed',
-			        'post',
-			        {
-						message: 'I just scored ' + result + '% in the PCR Digital Brogrammer Quiz',
-						caption: strapline,
-						picture: image,
-						name: 'The PCR Digital Brogrammer Quiz'
-				 	},
-			        function(response) {
-			           if (!response || response.error) {
-			              alert('Error occured');
-			           } else {
-			              alert('Cook was successful! Action ID: ' + response.id);
-			           }
-			});
 			
-			return false;
+			//FB UI STUFF HERE
+			
+			var obj = {
+			  method: 'feed',
+			  link: 'https://pcr-facebook.fishrod.co.uk/brogrammer',
+			  picture: image,
+			  name: 'The PCR Digital Brogrammer Quiz',
+			  caption: 'I just scored ' + result + ' in the PCR Digital Brogrammer Quiz',
+			  description: 'Using Dialogs to interact with users.'
+			};
+		
+			function callback(response) {
+			  document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+			}
+		
+			FB.ui(obj, callback);
+			
 		}
 	};
 	
