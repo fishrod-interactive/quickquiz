@@ -35,6 +35,7 @@
 		$directory = dirname($_SERVER['PHP_SELF']);
 
 		$imageurl = sprintf('%s://%s%s/reward.php?percentage=%s', $protocol, $_SERVER['SERVER_NAME'], $directory, $quiz->getScore());
+		$facebookURL = sprintf('%s://%s%s/', $protocol, $_SERVER['SERVER_NAME'], $directory);
 		
 		require_once 'templates/result.phtml';
 		return;

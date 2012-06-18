@@ -66,6 +66,14 @@ var app = (function($){
 				app.postToTimeline(result, strapline, image);
 			});
 		},
+		sendToFriend: function(URL){
+			
+			FB.ui({method: 'apprequests',
+          		message: 'Share PCR Brogramming Quiz'
+       		}, requestCallback);
+			
+			return false;
+		},
 		postToTimeline: function(result, strapline, image){
 			
 			//FB UI STUFF HERE
@@ -76,7 +84,7 @@ var app = (function($){
 			  picture: image,
 			  name: 'The PCR Digital Brogrammer Quiz',
 			  caption: 'I just scored ' + result + ' in the PCR Digital Brogrammer Quiz',
-			  description: 'Using Dialogs to interact with users.'
+			  description: 'Think you can beat their score? Try now bro!'
 			};
 		
 			function callback(response) {
