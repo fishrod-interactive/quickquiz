@@ -73,8 +73,7 @@ var app = (function($){
           method: 'send',
           name: 'PCR Brogrammer Quiz',
           link: 'https://pcr-facebook.fishrod.co.uk/brogrammer',
-		  picture: image,
-		  description: 'Here is a description about how awesome this app is!'
+		  picture: image
         });
 			
 			return false;
