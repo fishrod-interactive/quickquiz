@@ -75,7 +75,7 @@ var app = (function($){
           link: URL,
 		  picture: image,
 		  description: 'Here is a description about how awesome this app is!',
-		  redirect_uri: 'https://pcr-facebook.fishrod.co.uk/brogrammer'
+		  redirect_uri: 'http://pcr-facebook.fishrod.co.uk/brogrammer'
         }
 		
 		/*function(response) {
