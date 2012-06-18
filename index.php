@@ -33,7 +33,7 @@
 		
 		$protocol = (isset($_SERVER['HTTPS'])) ? 'https' : 'http';
 		$directory = dirname($_SERVER['PHP_SELF']);
-		
+		itergith
 		$imageurl = sprintf('%s://%s%s/reward.php?percentage=%s', $protocol, $_SERVER['SERVER_NAME'], $directory, $quiz->getScore());
 		
 		require_once 'templates/result.phtml';
