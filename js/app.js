@@ -68,12 +68,13 @@ var app = (function($){
 		},
 		sendToFriend: function(URL){
 			
+
 		FB.ui({
           method: 'send',
           name: 'PCR Brogrammer Quiz',
           link: 'https://pcr-facebook.fishrod.co.uk/brogrammer',
-		  description: 'I just scored ' + result + ' in the PCR Digital Brogrammer Quiz. Think you can beat my score? Try now bro!',
         });
+
 			
 			return false;
 		},
