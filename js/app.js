@@ -74,7 +74,8 @@ var app = (function($){
           name: 'PCR Brogrammer Quiz',
           link: URL,
 		  picture: image,
-		  description: 'Here is a description about how awesome this app is!'
+		  description: 'Here is a description about how awesome this app is!',
+		  redirect_uri: URL
         });
 			
 			return false;
