@@ -64,9 +64,15 @@ class Quiz {
 		}
 		
 		foreach($this->rewards as $reward){
+		
+			/*	var_dump($reward);
+				echo $score;
+				*/
+		
 			if($score <= $reward->threshold){
 				return $reward;
 			}
+			
 		}
 		
 		return false;

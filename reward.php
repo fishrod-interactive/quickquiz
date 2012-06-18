@@ -9,11 +9,11 @@ if($result < 0){
 	$result = 0;
 }
 
-if($result > 0 && $result < 25){
+if($result > 0 && $result <= 25){
 	$image = 'graphics/20-40.png';
-} else if($result >= 25 && $result < 50) {
+} else if($result > 25 && $result <= 50) {
 	$image = 'graphics/40-60.png';
-} else if($result >= 50 && $result < 75) {
+} else if($result > 50 && $result <= 75) {
 	$image = 'graphics/60-80.png';
 } else if($result > 75 && $result <= 100){
 	$image = 'graphics/80-100.png';
