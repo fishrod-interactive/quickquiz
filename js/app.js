@@ -112,23 +112,23 @@ var app = (function($){
 		
 			function callback(response) {
 
-			var message = 'Successfully posted to wall.', title = 'PCR Brogrammer Quiz - Link Shared', buttonLabel = '<input type="button" name="ok" value="OK" id="ok" onClick="FB.Dialog.remove(this);">', content = '<div id="window_container"><div id="title_bar">' +title+ '</div><p id="message">' + message + '</p><div id="bottom_bar">' +buttonLabel+ '</div></div>';
+				var message = 'Successfully posted to wall.', title = 'PCR Brogrammer Quiz - Link Shared', buttonLabel = '<input type="button" name="ok" value="OK" id="ok" onClick="FB.Dialog.remove(this);">', content = '<div id="window_container"><div id="title_bar">' +title+ '</div><p id="message">' + message + '</p><div id="bottom_bar">' +buttonLabel+ '</div></div>';
 	
-			var dialog = FB.Dialog.create({
-                content: content,
-                closeIcon: true,
-                onClose: function() {
-                        FB.Dialog.remove(this);
-                },
-                visible: true
-			});
+				var dialog = FB.Dialog.create({
+					content: content,
+					closeIcon: true,
+					onClose: function() {
+							FB.Dialog.remove(this);
+					},
+					visible: true
+				});
 	 
-			dialog.style.width='450px';
-			dialog.style.height='137px';
+				dialog.style.width='450px';
+				dialog.style.height='137px';
 			
 			}
 		
-			return false;
+			FB.ui(obj, callback);
 			
 		}
 	};
