@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<style type="text/css">
+	<style type="text/css">
+	#window_container{
+		border: 1px #555555 solid;
+	}
+ 
+	#title_bar{
+		color: rgb(255, 255, 255);
+		background-color: rgb(109, 132, 180);
+		font-size: 15px;
+		font-weight: bold;
+		padding: 5px;
+		text-align: left;
+	}
+ 
+	#bottom_bar{
+		color: rgb(0, 0, 0);
+		background-color: rgb(242, 242, 242);
+		padding: 8px;
+		text-align: right;
+		border-top: 1px solid rgb(198, 198, 198);
+		height:23px;
+	}
+ 
+	#message{
+		margin:10px 15px;
+		height:50px;
+	}
+ 
+	input[type=button] {
+		font-size: 13px;
+		background:#627aac;
+		color:#fff;
+		font-weight:bold;
+		border: 1px #29447e solid;
+		padding: 3px 3px 3px 3px;
+		clear:both;
+		margin-right:5px;
+	}
+ 
+	input[type=button]:hover {
+		background:#4f6aa3;
+	}
+</style>
+</head>
+
+<body>
+
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+ 
+<script>
+ 
+        var message = 'Link successfully shared. <br /><br /> Close this box.', title = 'PCR Brogrammer Quiz - Link Shared', buttonLabel = '<input type="button" name="ok" value="OK" id="ok" onClick="FB.Dialog.remove(this);">', content = '<div id="window_container"><div id="title_bar">' +title+ '</div><p id="message">' + message + '</p><div id="bottom_bar">' +buttonLabel+ '</div></div>';
+ 
+	var dialog = FB.Dialog.create({
+                content: content,
+                closeIcon: true,
+                onClose: function() {
+                        FB.Dialog.remove(this);
+                },
+                visible: true
+        });
+ 
+        dialog.style.width='450px';
+	dialog.style.height='137px';
+ 
+</script>
+
+</body>
+</html>
