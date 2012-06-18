@@ -75,16 +75,16 @@ var app = (function($){
           link: URL,
 		  picture: image,
 		  description: 'Here is a description about how awesome this app is!',
-		  //redirect_uri: URL
-        },
+		  redirect_uri: 'https://pcr-facebook.fishrod.co.uk/brogrammer'
+        }
 		
-		function(response) {
+		/*function(response) {
 			if (response && response.post_id) {
 			  alert('Post was published.');
 			} else {
 			  alert('Post was not published.');
 			}
-		  }
+		  } */
 		
 		);
 			
