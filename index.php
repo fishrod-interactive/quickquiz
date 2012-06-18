@@ -36,6 +36,7 @@
 
 		$imageurl = sprintf('%s://%s%s/reward.php?percentage=%s', $protocol, $_SERVER['SERVER_NAME'], $directory, $quiz->getScore());
 		$facebookURL = sprintf('%s://%s%s/', $protocol, $_SERVER['SERVER_NAME'], $directory);
+		$insecureurl = sprintf('http://%s%s/reward.php?percentage=%s', $_SERVER['SERVER_NAME'], $directory, $quiz->getScore());
 		
 		require_once 'templates/result.phtml';
 		return;
