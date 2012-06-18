@@ -66,7 +66,7 @@ var app = (function($){
 				app.postToTimeline(result, strapline, image);
 			});
 		},
-		sendToFriend: function(URL, image){
+		sendToFriend: function(URL, image, result){
 			
 
 		FB.ui({
