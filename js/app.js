@@ -74,11 +74,11 @@ var app = (function($){
           name: 'PCR Brogrammer Quiz',
           link: URL,
 		  picture: image,
-		  description: 'Here is a description about how awesome this app is!',
+		  description: 'I just scored ' + result + ' in the PCR Digital Brogrammer Quiz! Can you beat me?',
         },
 		
 		function(response) {
-	        	var message = 'Link successfully shared. <br /><br /> Close this box.', title = 'PCR Brogrammer Quiz - Link Shared', buttonLabel = '<input type="button" name="ok" value="OK" id="ok" onClick="FB.Dialog.remove(this);">', content = '<div id="window_container"><div id="title_bar">' +title+ '</div><p id="message">' + message + '</p><div id="bottom_bar">' +buttonLabel+ '</div></div>';
+	        	var message = 'Link successfully shared.', title = 'PCR Brogrammer Quiz - Link Shared', buttonLabel = '<input type="button" name="ok" value="OK" id="ok" onClick="FB.Dialog.remove(this);">', content = '<div id="window_container"><div id="title_bar">' +title+ '</div><p id="message">' + message + '</p><div id="bottom_bar">' +buttonLabel+ '</div></div>';
 	
 			var dialog = FB.Dialog.create({
                 content: content,
