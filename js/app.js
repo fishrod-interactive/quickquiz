@@ -38,7 +38,6 @@ var app = (function($){
 	
 	return {
 		init: function init(){
-			FB.Canvas.setSize({ width: 800, height: 850 });
 			enhanceQuestions();
 			enhanceScore();
 		},
