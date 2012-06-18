@@ -74,7 +74,7 @@ var app = (function($){
           name: 'PCR Brogrammer Quiz',
           link: URL,
 		  picture: image,
-		  description: 'I just scored ' + result + ' in the PCR Digital Brogrammer Quiz! Can you beat me?',
+		  description: 'I just scored ' + result + ' in the PCR Digital Brogrammer Quiz! Can you beat me?'
         },
 		
 		function(response) {
